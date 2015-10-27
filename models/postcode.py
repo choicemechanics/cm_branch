@@ -26,6 +26,10 @@ class cm_postcode(models.Model):
     
     def _get_postcode(self):
         for rec in self:
+            if not rec.part_1:
+                rec.part_1 = " "
+            if not rec.part_2:
+                rec.part_2 = " "
             total = str(rec.part_1) + " " + str(rec.part_2)
             rec.postcode = total
     
