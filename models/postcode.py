@@ -23,14 +23,12 @@ from openerp import models, fields, api, _
 class cm_postcode(models.Model):
     _name = "cm.postcode"
     
-    
-    def _get_postcode(self):
-        for rec in self:
-            total = str(rec.part_1) + " " + str(rec.part_2)
-            rec.postcode = total
-    
-    part_1 = fields.Char(string='Part 1')
-    part_2 = fields.Char(string='Part 2')
-    postcode = fields.Char(compute='_get_postcode', string="Postcode")
+    area = fields.Char(string='Area Code', help="Three character area code, for example BN3 or N1C", required=True)
+    branch_ids = fields.Many2many('cm.branch', 'branch_postcode_rel', 'postcode_id', 'branch_id', 'Branches')
+
+    @api.model
+    def create(self, vals):
+    	vals['area'] = (vals.get('area') or '').upper()
+    	return super(cm_postcode, self).create(vals)
     
 cm_postcode()

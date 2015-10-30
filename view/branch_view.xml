@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="branch_view_form" model="ir.ui.view">
+                <field name="name">branch_view_form</field>
+                <field name="model">cm.branch</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Branch">
+                        <group name="branch">
+                            <field name="name" />
+                            <field name="postcode_ids" />
+                        </group>
+                    </form>
+                </field>
+	   </record>
+        
+        <record id="branch_view_tree" model="ir.ui.view">
+            <field name="name">branch_view_tree</field>
+            <field name="model">cm.branch</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Branch">
+                    <field name="name" />
+                    <field name="postcode_ids" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="branch_action" model="ir.actions.act_window">
+            <field name="name">Branch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cm.branch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+       <menuitem id="label_menu_branch" parent="cm.main_menu_cm" name="Branches" />
+       <menuitem id="menu_branch" parent="label_menu_branch" name="Branches" action="branch_action"/>
+        
+   </data>
+</openerp>
