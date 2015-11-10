@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="wcfmc_account_view_form" model="ir.ui.view">
+                <field name="name">wcfmc_account_view_form</field>
+                <field name="model">cm.wcfmc_account</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Branch">
+                        <group name="wcfmc_account">
+                            <field name="name" />
+                            <field name="wcfmc_id" />
+                        </group>
+                    </form>
+                </field>
+	   </record>
+        
+        <record id="wcfmc_account_view_tree" model="ir.ui.view">
+            <field name="name">wcfmc_account_view_tree</field>
+            <field name="model">cm.wcfmc_account</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Branch">
+                    <field name="name" />
+                    <field name="wcfmc_id" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="wcfmc_account_action" model="ir.actions.act_window">
+            <field name="name">WCFMC Accounts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cm.wcfmc_account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+       <menuitem id="menu_wcfmc_account" parent="label_menu_branch" name="WCFMC Accounts" action="wcfmc_account_action"/>
+        
+   </data>
+</openerp>

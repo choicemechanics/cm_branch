@@ -20,3 +20,5 @@
 
 import postcode
 import branch
+import wcfmc_account
+import wcfmc_account_import_wizard

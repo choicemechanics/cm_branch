@@ -25,5 +25,6 @@ class cm_branch(models.Model):
     
     name = fields.Char(string='Name')
     postcode_ids = fields.Many2many('cm.postcode', 'branch_postcode_rel', 'branch_id', 'postcode_id', 'Postcodes')
+    wcfmc_account_id = fields.Many2one('cm.wcfmc_account', string="WCFMC Account")
     
 cm_branch()

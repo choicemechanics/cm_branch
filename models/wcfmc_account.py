@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#Copyright (c) 2015 - Present Teckzilla Software Solutions Pvt. Ltd. All Rights Reserved
+#    Copyright (c) 2015 - Present Teckzilla Software Solutions Pvt. Ltd. All Rights Reserved
 #    Author: [Teckzilla Software Solutions]  <[sales@teckzilla.net]>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,24 +18,12 @@
 #
 ##############################################################################
 
+from openerp import models, fields, api, _
 
-{
-    'name': 'CM Branch',
-    'version': '1.0',
-    'category': 'Generic Modules/Warehouse Management',
-    'description': """
-     CM Branch
-    """,
-    "website" : "www.teckzilla.net",
-    'author': 'Teckzilla Software Solutions',
-    'depends': ['cm'],
-    "demo" : [],
-    "data": [
-        'view/branch_view.xml',
-        'view/postcode_view.xml',
-        'view/wcfmc_account_view.xml',
-        'view/wcfmc_account_import_view.xml',
-    ],
-    'auto_install': False,
-    'installable': True,
-}
+class wcfmc_account(models.Model):
+    _name = "cm.wcfmc_account"
+    
+    name = fields.Char(string='Name')
+    wcfmc_id = fields.Integer(string="WCFMC ID")
+    
+wcfmc_account()

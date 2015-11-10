@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="wcfmc_account_import_view_form" model="ir.ui.view">
+            <field name="name">wcfmc_account_import_view_form</field>
+            <field name="model">cm.wcfmc_account_import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="WCFMC Account Import">
+                    <group>
+                        <button name="import_accounts" type="object"
+                            string="Import Accounts" class="oe_highlight"/>
+                    </group>
+                </form>
+            </field>
+	    </record>
+
+        <act_window id="cm.action_wcfmc_account_import"
+            name="Import WCFMC Accounts"
+            res_model="cm.wcfmc_account_import"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi" />
+
+        <menuitem
+            name="Import Accounts" parent="label_menu_branch"
+            action="cm.action_wcfmc_account_import"
+            sequence="20"
+            id="menu_action_account_import" />
+                
+   </data>
+</openerp>
